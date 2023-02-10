@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <script>
+        /*
+        var i = "degisken";
+        const a = 25
+        document.write(i);
+        document.write(a)
+        function method() {
+             let b= 30;
+            var c= 50;
+        }
+        console.log(c); // konsol erişilemiyor hatası veriyor. local variable olduğu için olabilir. 
+        document.write("Hello World");
+        window.alert("Hello World"); //Pop up çıkarır.
+        console.log({ad: "ahmet"});
+        */
+
+        // Date Types
+        // String
+
+        let name= "ahmet";
+        let number = 10;
+        let number2 = 20;
+        let names = new Array("ahmet","mehmet","hasan");
+        console.log(names[0]);
+        console.log(names[1]);
+        console.log("index of ahmet:" + names.indexOf("hasan"));
+        let hasProduct = false;
+        if (hasProduct == true){
+            console.log("ürün var");
+        }
+        else {
+            console.log("ürün yok");
+        }
+        console.log(number + number2);
+        console.log(name + number);
+
+        let product = {name: "kalem 1", price: 10.99, stock: 20}
+        console.log(`${product.name}-${product.price}-${product.stock}`); //good way. console.log(product.name + "-" + ...) bad way.
+
+        
+    </script>
+</head>
+<body>
+    <p>JavaScript Lesson 1</p>
+    <div id="box"></div>
+    
+</body>
+</html>
+
+<script>
+    document.getElementById("box").innerHTML="Hello World Box"
+</script> 

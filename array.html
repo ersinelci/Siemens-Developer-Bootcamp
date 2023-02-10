@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var numbers = [1,2,3,4,5];
+
+        numbers.push(6); // sona ekliyor
+        console.log(numbers);
+        numbers.unshift(0); // başa ekliyor
+        console.log(numbers);
+        numbers.pop(); // sonu siliyor
+        console.log(numbers);
+        numbers.shift(); // başı siliyor.
+        console.log(numbers);
+
+        console.log(numbers.join("-"));
+        numbers = numbers.slice(1,3); //1. indexi siler.
+        console.log(numbers);
+
+        // Array find,filter metotu.
+
+        var products = [
+            {id: 1, name: "kalem 1", price: 100, stock: 20},
+            {id: 2, name: "kalem 2", price: 200, stock: 40},
+            {id: 3, name: "kalem 3", price: 300, stock: 60},
+        ]
+
+        var product = products.find(product => product.prive >= 200);
+        console.log(product)
+        var searchProducts = products.filter(product => product.price > 100);
+
+        var filterProductMethod = (product)=>
+        {return product.price > 100 && product.stock > 40}
+
+        products.forEach((product)) => {
+            if(filterProductMethod2(product)){
+                console.log(product);
+            }
+
+        }   
+
+        console.log(products.map(product => {id: products.id, name: product.name}))
+         </script>
+</head>
+<body>
+    
+</body>
+</html>
