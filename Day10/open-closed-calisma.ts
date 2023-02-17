@@ -101,3 +101,4 @@ interface ISalaryKeyValue
 // console.log(`high ${ salaryCalculate.calculateGood(1000,new HighSalaryCalculate())}`)
 // console.log(`low ${ salaryCalculate.calculateGood(1000,new LowSalaryCalculate())}`)
 // console.log(`mid ${ salaryCalculate.calculateGood(1000,new MidSalaryCalculate())}`)
+
