@@ -1,5 +1,5 @@
-## Day 10: SOLID ve Typescript Üzerine Notlar
-
+## Day 10: SOLID,Design Patterns ve Typescript Üzerine Notlar
+### SOLID
 ---
 
 - Clean Code, yazar önerisi: Robert C. Martin (SOLID prensiplerinin yaratıcısı)
@@ -8,7 +8,7 @@
 
 <br>
 
-- ### Single Responsibility
+- #### Single Responsibility
 
 "There should never be more than one reason for a class to change".
 
@@ -16,7 +16,7 @@ Her class'ın belirli sorumlulukları olmalı. Fazla class tanımlamaktan kaçı
 
 `Not: Domain-driven design'a çalış!!! Single Responsibility'i ihlal eder, ama avantajları vardır. Complexity artıkça DDD'e bakmak gerekir.`
 
-- ### Open-closed Principle
+- #### Open-closed Principle
 
 "Software entities should be open for extension but closed for modification"
 
@@ -24,21 +24,30 @@ Var olan koda dokunmadan, ekleme yapmalıyız.
 
 `Aynı method içinde bir kaç satır boşluk varsa, bir method birden fazla iş için çalışıyor olabilir. Refactoring için kötü kodu yakalamada ipucu olabilir.`
 
-- ### Liskov Pubstitution Principle
+- #### Liskov Pubstitution Principle
 
 An object(such as a class) and a sub-object (such as a class that extends the first class) must be interchangeable without breaking the program.
 
 inherit edilen class'ların değişkenliğinin bozmaması gerekir. İnternetten daha fazla örneğe bakılmalı!
 
-- ### Interface Sgregation
+- #### Interface Sgregation
 
 The Interface Segregation Principle (ISP) states that a client should not be exposed to methods it doesn't need.
 
 `Sorumlulukların hepsini tek bir arayüze toplamak yerine daha özelleştirilmiş birden fazla arayüz oluşturmayı tercih etmemizi söyleyen prensiptir. Tek bir interface yerine kullanımlarına göre parçalanmış birden fazla interface ile işlemleri yürütmeliyiz.`
 
-- ### Dependency Inversion Principler
+- #### Dependency Inversion Principler
 
 > In object-oriented design, the dependency inversion principle is a specific methodology for loosely coupling software modules. When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed, thus rendering high-level modules independent of the low-level module implementation details. The principle states:
 
 - High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces).
 - Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+
+
+---
+
+### Design Patterns
+
+#### Has-a Is-a İlişkisi
+
+- Bir class'ın property'si (is-a) ve behave'i (has-a) ilişkisidir. Best practice için `Bridge Design Pattern`'a bakmak gerekir.
