@@ -1,19 +1,13 @@
-class Animal {
-    // Attribute'ları tanımladık.
-    hunger: number
-    health: number
-        
-    // behaviour'ları tanımladık.
-    
-    makeNoise() {
-        console.log("Making noise.")
-    }
+abstract class Animal {
+    public abstract makeNoise(): void;
+}
 
-    move() {
-        console.log("Moving")
+class Dog extends Animal {
+    public override makeNoise(): void {
+        console.log('bark');
     }
+}
 
-    eat(){
-        console.log("Eating")
-    }
-    }
+const dog = new Dog();
+
+dog.makeNoise();
