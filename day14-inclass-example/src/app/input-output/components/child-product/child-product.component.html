@@ -1,0 +1,25 @@
+<p>child-product works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [ngClass]="{'selected':highlightRow(person.id)}" *ngFor="let person of personList">
+                        <td>{{person.name}}</td>
+                        <td>{{person.surname}}</td>
+                        <td><button (click)="showDetail(person.id)">Detay Göster</button></td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

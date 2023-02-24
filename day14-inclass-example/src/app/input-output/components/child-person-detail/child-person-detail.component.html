@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Kişi Envanteri</div>
+        <div class="card-body">
+        <button style="background-color: aquamarine;" (click)="close()">Kapat</button>
+          <h5 class="card-title">Bilgiler</h5>
+          
+            <p>ID :{{selectedPerson?.id}}</p>              
+            <p>İsim :{{selectedPerson?.name}}</p>
+            <p>Soyisim :{{selectedPerson?.surname}}</p>
+            <p>Meslek :{{selectedPerson?.job}}</p>
+        </div>
+        </div>
+      </div>
+
+</div>

@@ -1,0 +1,4 @@
+<app-child-product (detailShowClick)="showDetail($event)" [personList]="personList"  [selectedId]="selectedPerson?.id">
+</app-child-product>
+<app-child-person-detail (closeEventClick)="close()"
+*ngIf="togglePersonDetail" [selectedPerson]="selectedPerson"></app-child-person-detail>
