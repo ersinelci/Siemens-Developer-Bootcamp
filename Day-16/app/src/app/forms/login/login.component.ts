@@ -3,7 +3,8 @@ import { Login } from 'src/app/models/login';
 import { FormBuilder, Validators } from '@angular/forms';
 import { passwordValidator } from 'src/app/validations/password-validator';
 import { emailValidator } from 'src/app/validations/email-validator';
-
+import { PostServiceLogin } from './post.service-login';
+import { ExistNameValidator } from 'src/app/validations/exist-name-validator';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,12 +15,22 @@ export class LoginComponent {
   loginEntry: Login | undefined = undefined;
   public loginForm = this.formBuilder.group(
     {
-      email: ['', [Validators.required,emailValidator()]],
+      email: ['', {
+       Validators: [Validators.required,emailValidator()],
+       asyncValidators: [ExistNameValidator(this.postService),]
+      }],
       password: ['',[Validators.required, passwordValidator()]],
       checkbox: false
     }
   )
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private postService: PostServiceLogin
+  ) {
+    this.postService.searchByName('sunt').subscribe((x:any) => {
+      console.log(x.length);
+    });
+  }
 
   signin(){
     this.loginEntry = this.loginForm.value as Login;
