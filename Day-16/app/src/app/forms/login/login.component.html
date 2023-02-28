@@ -1,72 +1,137 @@
 <p>login works!</p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <form [formGroup]="loginForm" (ngSubmit)="signin()">
-        <h3>Giriş Ekranı</h3>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                    <form [formGroup]="loginForm" (ngSubmit)="signin()">
+                      <h3>Giriş Ekranı</h3>
+                      <br>
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <!-- <label class="form-label">Email adresi</label> -->
+                        <input
+                          formControlName="email"
+                          type="email"
+                          class="form-control"
+                          placeholder="E-mail"
+                        />
+                        <div class="form-text text-danger">
+                          <div *ngIf="isInvalid('email')">
+                            <div
+                              *ngIf="isInvalidControl('email', 'required')"
+                              style="color: white"
+                            >
+                              E-mail alanı doldurulmalıdır.
+                            </div>
+                            <div
+                              *ngIf="isInvalidControl('email', 'emailFormat')"
+                              style="color: white"
+                            >
+                              E-mail doğru formatta değil.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <label class="form-label">Email adresi</label>
-          <input formControlName="email" type="email" class="form-control" />
-          <div class="form-text text-danger">
-            <div *ngIf="isInvalid('email')">
-              <div *ngIf="isInvalidControl('email', 'required')">
-                E-mail alanı doldurulmalıdır.
-              </div>
-              <div *ngIf="isInvalidControl('email', 'emailFormat')">
-                E-mail doğru formatta değil.
-              </div>
-            </div>
-          </div>
-        </div>
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <!-- <label class="form-label" for="form2Example2"
+                            >Şifre</label -->
 
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form2Example2">Şifre</label>
-          <input formControlName="password" type="password" class="form-control" />
-          <div class="form-text text-danger">
-            <div *ngIf="isInvalid('password')">
-                <div *ngIf="isInvalidControl('password', 'required')">
-                    Şifre alanı doldurulmalıdır.
+                        <input
+                          formControlName="password"
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                        />
+                        <div class="form-text text-danger">
+                          <div *ngIf="isInvalid('password')">
+                            <div
+                              *ngIf="isInvalidControl('password', 'required')"
+                              style="color: white"
+                            >
+                              Şifre alanı doldurulmalıdır.
+                            </div>
+                            <div
+                              *ngIf="
+                                isInvalidControl('password', 'minlength') ||
+                                isInvalidControl('password', 'maxlength') ||
+                                isInvalidControl('password', 'passwordFormat')
+                              "
+                              style="color: white"
+                            >
+                              Şifre Büyük harf,küçük harf ve rakam içermelidir.
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngIf="false">
+                          <h3>Email Properties</h3>
+                          <ul>
+                            <li>
+                              Value :{{ loginForm.get("email")?.value | json }}
+                            </li>
+                            <li>Valid :{{ loginForm.get("email")?.valid }}</li>
+                            <li>
+                              Invalid :{{ loginForm.get("email")?.invalid }}
+                            </li>
+                            <li>
+                              Errors :{{
+                                loginForm.get("email")?.errors | json
+                              }}
+                            </li>
+                            <li>
+                              touched :{{ loginForm.get("email")?.touched }}
+                            </li>
+                            <li>
+                              untouched :{{ loginForm.get("email")?.untouched }}
+                            </li>
+                            <li>dirty :{{ loginForm.get("email")?.dirty }}</li>
+                            <li>
+                              pristine :{{ loginForm.get("email")?.pristine }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <!-- <div class="row mb-4">
+                          <div class="col d-flex justify-content-center"></div>
+                        </div> -->
+
+                      <!-- Submit button -->
+                      <input
+                      type="checkbox"
+                      formControlName="checkbox"
+                    /> Remind Me
+                   
+                      <br> <br>
+
+                      <button
+                        type="submit"
+                        class="btn btn-primary btn-block mb-4"
+                      >
+                        Giriş yap
+                      </button>
+                      
+                      
+                      
+                      
+                    </form>
                   </div>
-                  <div
-                *ngIf="
-                  isInvalidControl('password', 'minlength') ||
-                  isInvalidControl('password', 'maxlength') ||
-                  isInvalidControl('password','passwordFormat')
-                "
-              >
-                Şifre formatı doğru değil. Şifre Büyük Harf,Küçük Harf ve rakam içermelidir.
+                </div>
               </div>
             </div>
           </div>
-          <div *ngIf="false">
-            <h3>Email Properties</h3>
-            <ul>
-              <li>Value :{{ loginForm.get("email")?.value | json }}</li>
-              <li>Valid :{{ loginForm.get("email")?.valid }}</li>
-              <li>Invalid :{{ loginForm.get("email")?.invalid }}</li>
-              <li>Errors :{{ loginForm.get("email")?.errors | json }}</li>
-              <li>touched :{{ loginForm.get("email")?.touched }}</li>
-              <li>untouched :{{ loginForm.get("email")?.untouched }}</li>
-              <li>dirty :{{ loginForm.get("email")?.dirty }}</li>
-              <li>pristine :{{ loginForm.get("email")?.pristine }}</li>
-            </ul>
-          </div>
+          <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4"> -->
         </div>
-
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-          <div class="col d-flex justify-content-center"></div>
-        </div>
-
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">
-          Giriş yap
-        </button>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</section>

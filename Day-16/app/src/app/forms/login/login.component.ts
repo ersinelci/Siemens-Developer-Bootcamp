@@ -10,20 +10,20 @@ import { emailValidator } from 'src/app/validations/email-validator';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  
   loginEntry: Login | undefined = undefined;
   public loginForm = this.formBuilder.group(
     {
       email: ['', [Validators.required,emailValidator()]],
       password: ['',[Validators.required, passwordValidator()]],
+      checkbox: false
     }
   )
   constructor(private formBuilder: FormBuilder) {}
 
   signin(){
     this.loginEntry = this.loginForm.value as Login;
-    console.log(this.loginEntry
-  )
+    console.log(this.loginEntry)
   }
 
   isInvalid(controlName: string): boolean {
@@ -51,4 +51,6 @@ export class LoginComponent {
   isInvalidControl(controlName: string, validationName: string) {
     return this.getControl(controlName).errors?.[validationName];
   }
+
+  
 }
