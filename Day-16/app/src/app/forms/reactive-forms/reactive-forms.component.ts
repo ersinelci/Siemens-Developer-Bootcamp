@@ -22,7 +22,9 @@ export class ReactiveFormsComponent {
         {
           Validators: [Validators.required, Validators.minLength(5)],
           asyncValidators: [ExistProductNameValidator(this.postService)],
+          updateOn: 'change' //change,blur,submit
         },
+        
       ],
       price: [
         '',
@@ -61,6 +63,10 @@ export class ReactiveFormsComponent {
     this.postService.searchByProductName('sunt').subscribe((x) => {
       console.log(x.length);
     });
+
+    this.productForm.get('barcode')?.valueChanges.subscribe((x) => {
+      console.log(x);
+    })
   }
 
   save() {
