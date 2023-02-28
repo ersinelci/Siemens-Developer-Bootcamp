@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
 import { TwoWayBindingComponent } from './forms/two-way-binding/two-way-binding.component';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
+import { LoginComponent } from './forms/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDrivenComponent,
     TwoWayBindingComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

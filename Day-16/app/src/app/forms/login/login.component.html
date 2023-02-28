@@ -1,0 +1,72 @@
+<p>login works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="loginForm" (ngSubmit)="signin()">
+        <h3>Giriş Ekranı</h3>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label">Email address</label>
+          <input formControlName="email" type="email" class="form-control" />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('email')">
+              <div *ngIf="isInvalidControl('email', 'required')">
+                E-mail alanı doldurulmalıdır.
+              </div>
+              <div *ngIf="isInvalidControl('email', 'emailFormat')">
+                E-mail doğru formatta değil.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Şifre</label>
+          <input formControlName="password" type="password" class="form-control" />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('password')">
+                <div *ngIf="isInvalidControl('password', 'required')">
+                    Şifre alanı doldurulmalıdır.
+                  </div>
+                  <div
+                *ngIf="
+                  isInvalidControl('password', 'minlength') ||
+                  isInvalidControl('password', 'maxlength') ||
+                  isInvalidControl('password','passwordFormat')
+                "
+              >
+                Şifre formatı doğru değil
+              </div>
+            </div>
+          </div>
+          <div *ngIf="false">
+            <h3>Email Properties</h3>
+            <ul>
+              <li>Value :{{ loginForm.get("email")?.value | json }}</li>
+              <li>Valid :{{ loginForm.get("email")?.valid }}</li>
+              <li>Invalid :{{ loginForm.get("email")?.invalid }}</li>
+              <li>Errors :{{ loginForm.get("email")?.errors | json }}</li>
+              <li>touched :{{ loginForm.get("email")?.touched }}</li>
+              <li>untouched :{{ loginForm.get("email")?.untouched }}</li>
+              <li>dirty :{{ loginForm.get("email")?.dirty }}</li>
+              <li>pristine :{{ loginForm.get("email")?.pristine }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center"></div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Giriş yap
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
