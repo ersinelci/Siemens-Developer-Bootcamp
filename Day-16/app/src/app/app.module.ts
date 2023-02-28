@@ -8,6 +8,7 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { TwoWayBindingComponent } from './forms/two-way-binding/two-way-binding.component';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
 import { LoginComponent } from './forms/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './forms/login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
