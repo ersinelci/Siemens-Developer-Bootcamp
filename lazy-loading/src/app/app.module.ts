@@ -4,20 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
-import { UserListComponent } from './user/user-list/user-list.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NgContainerAndTemplateComponent } from './pages/ng-container-and-template/ng-container-and-template.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent, NgContainerAndTemplateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule, // eager loading
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
