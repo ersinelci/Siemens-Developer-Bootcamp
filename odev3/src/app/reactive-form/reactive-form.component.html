@@ -1,0 +1,46 @@
+<p>reactive-form works!</p>
+
+
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+    <div class="row mb-3">
+      <label for="name" class="col-sm-2 col-form-label">Name: </label>
+      <div class="col-sm-10">
+     
+        <input id="name" type="text" class= "form-control" [formControl]="name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="price" class="col-sm-2 col-form-label">Price</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="price" [formControl]="price">
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col-sm-10 offset-sm-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck1">
+          <label class="form-check-label" for="gridCheck1">
+            Yayınlansın mı?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <label for="category">Category</label>
+      <div class="mb-3">
+        <label class="form-label">Kategori :</label>
+        <select formControlName="category" class="form-select">
+          <option value="">Seçiniz</option>
+          <option
+            value="{{ category.id }}"
+            *ngFor="let category of categoryMenuList"
+          >
+            {{ category.text }}
+          </option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Kayıt Göster !</button>
+
+ 
