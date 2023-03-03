@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './main/about/about.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { HomeComponent } from './main/home/home.component';
+
 import { SharedModule } from './shared/shared.module';
+
+
 
 
 
@@ -15,14 +18,16 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     HomeComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    SharedModule
+    SharedModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

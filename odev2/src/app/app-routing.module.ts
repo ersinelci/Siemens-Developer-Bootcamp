@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageViewsComponent } from './admin/page-views/page-views.component';
+import { StatusComponent } from './admin/status/status.component';
 import { VisitorComponent } from './admin/visitor/visitor.component';
 import { AboutComponent } from './main/about/about.component';
 import { ContactComponent } from './main/contact/contact.component';
@@ -15,8 +17,17 @@ const routes: Routes = [
     {path: 'iletisim', component:ContactComponent}
   ]},
   {path: 'admin', component:AdminLayoutComponent, children: [
-    {path: 'ziyaretci', component: VisitorComponent}
-  ]}
+    {path: 'ziyaretci', component: VisitorComponent},
+    {path: 'durum', component: StatusComponent},
+    {path: 'counter', component: PageViewsComponent}
+  ]},
+  { path: 'orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+
 ];
 
 @NgModule({
