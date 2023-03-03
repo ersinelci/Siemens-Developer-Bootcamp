@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'app-inclass'`, () => {
+  it(`should have as title 'myapp-inclass'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('app-inclass');
+    expect(app.title).toEqual('myapp-inclass');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('app-inclass app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('myapp-inclass app is running!');
   });
 });
